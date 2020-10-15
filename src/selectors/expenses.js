@@ -2,8 +2,7 @@ import moment from 'moment';
 
 // Get visible expenses
 
-// export default (expenses, { text, sortBy, startDate, endDate }) => {
-const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
+export default (expenses, { text, sortBy, startDate, endDate }) => {
   return expenses.filter((expense) => {
     const createdAtMoment = moment(expense.createdAt);
     // const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
@@ -17,16 +16,7 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
     if (sortBy === 'date') {
       return a.createdAt < b.createdAt ? 1 : -1;
     } else if (sortBy === 'amount') {
-     return a.amount < b.amount ? 1 : -1;
+      return a.amount < b.amount ? 1 : -1;
     }
   });
 };
-
-export default getVisibleExpenses;
-
-// Called with the below
-// store.subscribe(() => {
-//   const state = store.getState();
-//   const visibleExpenses = getVisibleExpenses(state.expenses, state.filters); 
-//   console.log(visibleExpenses);
-// });

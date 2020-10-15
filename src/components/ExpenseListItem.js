@@ -2,31 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
+import localData from '../locales/locales-gr-euros';
 
-// ------convert to amount to euro ------
+// ------convert the amount to euro ------
 // load a locale
-numeral.register('locale', 'gr', {
-  delimiters: {
-      thousands: ',',
-      decimal: '.'
-  },
-  abbreviations: {
-      thousand: 'k',
-      million: 'm',
-      billion: 'b',
-      trillion: 't'
-  },
-  ordinal: function (number) {
-      var b = number % 10;
-      return (~~ (number % 100 / 10) === 1) ? 'th' :
-          (b === 1) ? 'st' :
-          (b === 2) ? 'nd' :
-          (b === 3) ? 'rd' : 'th';
-  },
-  currency: {
-      symbol: '€'
-  }
-})
+numeral.register('locale', 'gr', localData)
   
 // switch between locales
 numeral.locale('gr');
