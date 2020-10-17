@@ -29,6 +29,13 @@
 // const getGreeting = oldSyntax.getGreeting;
 // console.log(getGreeting());
 
+
+// Below, with the class fields proposal we don't need to explicit the constructor and super,
+// all arguments are passed down automatically.
+// This is what allows an expression like state = {} to include references to this.props (or this.context if necessary).
+// With Hooks, we don’t even have super or this. 
+// https://github.com/tc39/proposal-class-fields
+
 // class NewSyntax {
 //   name = 'Jan';
 //   getGreeting = () => {
@@ -48,6 +55,7 @@ import configureStore from './store/configureStore';
 import 'react-dates/lib/css/_datepicker.css';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import './firebase/firebase';
 
 const store = configureStore();
 const jsx = (
