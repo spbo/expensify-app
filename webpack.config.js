@@ -1,5 +1,3 @@
-import DotEnv from 'dotenv';
-
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,9 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 if (process.env.NODE_ENV === 'test') {
-  DotEnv.config({ path: '.env.test' });
+  require('dotenv').config({ path: '.env.test' });
 } else (process.env.NODE_ENV === 'develpment'){
-  DotEnv.config({ path: '.env.development' });
+  require('dotenv').config({ path: '.env.development' });
 }
 
 module.exports = (env) => {
